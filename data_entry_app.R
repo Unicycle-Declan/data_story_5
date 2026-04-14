@@ -4,6 +4,8 @@ library(shiny)
 library(lubridate)
 library(DT)
 
+species <- 
+  c("Quercus coccinea", "Oxydendrum arboreum", "Liquidambar styraciflua", "Acer rubrum", "Sassafras albidum", "Quercus alba", "Nyssa sylvatica")
 # Function for saving data to a CSV file ----
 log_line <- function(newdata, filename = 'app_data.csv'){
   (dt <- Sys.time() %>% round %>% as.character)
@@ -15,50 +17,85 @@ log_line <- function(newdata, filename = 'app_data.csv'){
 # UI ----
 ui <- fluidPage(
   titlePanel(h4("Data entry app")),
-  br(),
-  fluidRow(
-    # Example input: manual text entry
-    column(4, textInput('text',
-                        label='Type here',
-                        value='typing placeholder',
-                        width = '95%')),
-    
-    # Example input: selecting pre-canned options
-    column(4, selectInput('select',
-                          label='Select here',
-                          choices = paste('select', 1:4),
-                          width='95%')),
-    
-    # Example input: toggling between options
-    column(4, radioButtons('radio',
-                           label='Toggle here',
-                           choices = paste('toggle', 1:4),
-                           inline = TRUE,
-                           width='95%'))),
-  br(),
-  br(),
-  fluidRow(column(2),
-           # Save button!
-           column(8, actionButton('save',
-                                  h2('Save!'),
-                                  width='100%')),
-           column(2))
+  tabsetPanel(
+    tabPanel(h5("trees"), 
+             fluidRow(
+               ## plot number ----
+               column(3, selectInput(inputId = "plot",
+                                     label = "plot number",
+                                     multiple = FALSE,
+                                     choices = 1:99,
+                                     selected = "1"
+                                     )
+                      ),
+               ## DBH ----
+               column(3, numericInput(inputId = "DBH",
+                                   label = "DBH(in)",
+                                   value = "",
+                                   width = "20%"
+                                   )
+                      ),
+               ## height ----
+               column(3, numericInput(inputId = "height",
+                                   label = "height(ft)",
+                                   value = "",
+                                   width = "20%"
+                                   )
+                      ),
+               ## species ----
+               column(3, selectInput(inputId = "species",
+                                     label = "species",
+                                     multiple = FALSE,
+                                     choices = c(species, ""),
+                                     selected = ""
+                                     )
+                      )
+             ),
+             fluidRow(column(2),
+                      ## Save button ----
+                      column(8, actionButton('save',
+                                             h2('Save!'),
+                                             width='100%')),
+                      column(2)
+                      )
+    ),
+    tabPanel(h5("Arondinaria"), 
+             fluidRow(
+               ## plot number ----
+               column(3, selectInput(inputId = "plot",
+                                     label = "plot number",
+                                     multiple = FALSE,
+                                     choices = 1:99,
+                                     selected = "1"
+                                     )
+                      ),
+               column(2, numericInput(inputId = "L",
+                                   label = "DALT(ft)",
+                                   value = " ",
+                                   width = "50%"
+                                   )
+                      ),
+               column(2, numericInput(inputId = "S",
+                                   label = "DAST(ft)",
+                                   value = " ",
+                                   width = "50%"
+                                   )
+                      ),
+               )
+  )
 )
-
+)
 # Server ----
 server <- function(input, output) {
   
-  # Save button ================================================================
+  # Save button ----
   observeEvent(input$save, {
     newdata <- c(input$text, input$select, input$radio)
     log_line(newdata)
     showNotification("Save successful!")
   })
-  #=============================================================================
   
 }
 
-################################################################################
-################################################################################
-
+# run app ----
 shinyApp(ui, server)
