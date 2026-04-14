@@ -3,6 +3,7 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 library(shiny)
 library(lubridate)
 library(DT)
+library(readr)
 
 species <- 
   c("Quercus coccinea", "Oxydendrum arboreum", "Liquidambar styraciflua", "Acer rubrum", "Sassafras albidum", "Quercus alba", "Nyssa sylvatica")
@@ -18,9 +19,10 @@ log_line <- function(newdata, filename = 'app_data.csv'){
 ui <- fluidPage(
   titlePanel(h4("Data entry app")),
   tabsetPanel(
-    tabPanel(h5("trees"), 
+    ## tree tab ----
+    tabPanel(h5("Trees"), 
              fluidRow(
-               ## plot number ----
+               ### plot number ----
                column(3, selectInput(inputId = "plot",
                                      label = "plot number",
                                      multiple = FALSE,
@@ -28,21 +30,21 @@ ui <- fluidPage(
                                      selected = "1"
                                      )
                       ),
-               ## DBH ----
+               ### DBH ----
                column(3, numericInput(inputId = "DBH",
                                    label = "DBH(in)",
                                    value = "",
                                    width = "20%"
                                    )
                       ),
-               ## height ----
+               ### height ----
                column(3, numericInput(inputId = "height",
                                    label = "height(ft)",
                                    value = "",
                                    width = "20%"
                                    )
                       ),
-               ## species ----
+               ### species ----
                column(3, selectInput(inputId = "species",
                                      label = "species",
                                      multiple = FALSE,
@@ -52,16 +54,20 @@ ui <- fluidPage(
                       )
              ),
              fluidRow(column(2),
-                      ## Save button ----
-                      column(8, actionButton('save',
-                                             h2('Save!'),
+                      ### Save button ----
+                      column(8, actionButton('save_tree',
+                                             h2('Save'),
                                              width='100%')),
                       column(2)
+                      ),
+             fluidRow(column(12, DTOutput("tree_dt")
+                             )
                       )
     ),
+    ## Arondinaria tab ----
     tabPanel(h5("Arondinaria"), 
              fluidRow(
-               ## plot number ----
+               ### plot number ----
                column(3, selectInput(inputId = "plot",
                                      label = "plot number",
                                      multiple = FALSE,
@@ -69,6 +75,7 @@ ui <- fluidPage(
                                      selected = "1"
                                      )
                       ),
+               ### area ----
                column(2, numericInput(inputId = "L",
                                    label = "DALT(ft)",
                                    value = " ",
@@ -81,19 +88,32 @@ ui <- fluidPage(
                                    width = "50%"
                                    )
                       ),
+               column(2, textOutput(outputId = "area"
+                                    )
+                      )
                )
   )
 )
 )
 # Server ----
 server <- function(input, output) {
-  
+    rv <- reactiveValues()
+    rv$df <- read.csv('tree_data.csv', header=FALSE)
+
+    output$tree_dt <- renderDT({
+      df <- read.csv('tree_data.csv')
+      rv$df
+    })
+
   # Save button ----
-  observeEvent(input$save, {
-    newdata <- c(input$text, input$select, input$radio)
-    log_line(newdata)
+  observeEvent(input$save_tree, {
+    newdata <- c(input$plot, input$DBH, input$height, input$species)
+    log_line(newdata, "tree_data.csv")
     showNotification("Save successful!")
   })
+    
+  # area ---- 
+    output$area <- 3.14(((input$L + input$S) / 4)^2)
   
 }
 
