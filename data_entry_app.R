@@ -113,7 +113,9 @@ server <- function(input, output) {
   })
     
   # area ---- 
-    output$area <- 3.14(((input$L + input$S) / 4)^2)
+    output$area <- renderText ({
+      paste(round(pi * (((input$L + input$S) / 4)^2), digits = 2), "ft^2")
+    })
   
 }
 
