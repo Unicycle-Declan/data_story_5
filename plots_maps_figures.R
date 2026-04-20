@@ -129,7 +129,8 @@ kable(plot_sum)
 # BA and A graph ----
 ggplot(plot_sum,
        aes(x = `BA/Acre`,
-           y = ``))
+           y = `Ar ft^2/Acre`)) +
+  geom_path()
 
 # comparison to original state ----
 
