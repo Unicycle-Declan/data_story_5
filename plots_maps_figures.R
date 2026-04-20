@@ -5,6 +5,7 @@ library(dplyr)
 library(gsheet)
 library(sf)
 library(knitr)
+library(ggplot2)
 
 # load datasets ----
 ## tree data ----
@@ -124,6 +125,11 @@ plot_sum <-
   left_join(plot_sum,Ar_sum)
   
 kable(plot_sum)
+
+# BA and A graph ----
+ggplot(plot_sum,
+       aes(x = `BA/Acre`,
+           y = ``))
 
 # comparison to original state ----
 
