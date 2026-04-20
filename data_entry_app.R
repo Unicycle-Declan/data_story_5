@@ -60,6 +60,7 @@ ui <- fluidPage(
                                              width='100%')),
                       column(2)
                       ),
+             ### table ----
              fluidRow(column(12, DTOutput("tree_dt")
                              )
                       )
@@ -91,31 +92,62 @@ ui <- fluidPage(
                column(2, textOutput(outputId = "area"
                                     )
                       )
-               )
+               ),
+             ### save button ----
+             fluidRow(
+               column(2),
+               column(8,actionButton("save_Ar",
+                                     h2("Save"),
+                                     width = "100%")),
+               column(2)
+             ),
+             ### table ----
+             fluidRow(
+               column(12, DTOutput("Ar_data"))
+             )
   )
 )
 )
 # Server ----
 server <- function(input, output) {
-    rv <- reactiveValues()
-    rv$df <- read.csv('tree_data.csv', header=FALSE)
-
-    output$tree_dt <- renderDT({
-      df <- read.csv('tree_data.csv')
-      rv$df
-    })
-
-  # Save button ----
+  rv <- reactiveValues()
+  rv$tree_df <- read.csv('tree_data.csv', header=FALSE)
+  rv$Ar_df <- read.csv('Ar_data.csv', header=FALSE)
+  
+  # tree data table
+  output$tree_dt <- renderDT({
+    tree_df <- read.csv('tree_data.csv')
+    rv$tree_df
+  })
+  
+  # tree Save button ----
   observeEvent(input$save_tree, {
     newdata <- c(input$plot, input$DBH, input$height, input$species)
     log_line(newdata, "tree_data.csv")
     showNotification("Save successful!")
   })
-    
-  # area ---- 
-    output$area <- renderText ({
-      paste(round(pi * (((input$L + input$S) / 4)^2), digits = 2), "ft^2")
-    })
+  
+  # area (calculate area as a reactive value) ---- 
+  area_value <- reactive({
+    round(pi * (((input$L + input$S) / 4)^2), digits = 2)
+  })
+  
+  output$area <- renderText({
+    paste(area_value(), "ft^2")
+  })
+  
+  # Arondinaria Save button ----
+  observeEvent(input$save_Ar, {
+    newdata <- c(input$plot, area_value())
+    log_line(newdata, "Ar_data.csv")
+    showNotification("Save successful!")
+  })
+  
+  # Arondinaria data table
+  output$Ar_data <- renderDT({
+    Ar_df <- read.csv('Ar_data.csv')
+    rv$Ar_df
+  })
   
 }
 
