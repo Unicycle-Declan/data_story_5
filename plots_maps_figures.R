@@ -72,8 +72,8 @@ leaflet()%>%
   # setView()%>%
   addCircles(data = plots, 
              radius = 11.35,
-             color = "red",
-             fill = "red",
+             color = "limegreen",
+             fill = "limegreen",
              weight = 1,
              group = "Sample Plots") %>% # radious is in meters
   addPolylines(data = trans, 
@@ -84,12 +84,17 @@ leaflet()%>%
               color = "cyan",
               weight = 2,
               group = "Stand") %>%
+  addMiniMap(width = 100, height = 100,
+             zoomLevelOffset = -8,
+             zoomLevelFixed = TRUE) %>%
+  addLegend(position = "topright",
+            labels = c("Sample Plots", "Transect", "Stand"),
+            colors = c("limegreen", "red", "cyan"),
+            title = "Map Layers") %>%
   addLayersControl(baseGroups = "Base Map", 
                    overlayGroups = c("Stand","Sample Plots","Transect"), 
                    position = "topright") %>%
-  addMiniMap(width = 100, height = 100,
-             zoomLevelOffset = -8,
-             zoomLevelFixed = TRUE)
+  addResetMapButton()
              # centerFixed = TRUE)
 
 # summary table ----
