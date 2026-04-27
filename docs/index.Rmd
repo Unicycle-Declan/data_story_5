@@ -1,16 +1,16 @@
 ---
-title: "index"
-author: "Declan Oberlies"
+title: "Compartment 60 Arundinaria Wetland Success"
+author: "Oakley Griffin, Declan Oberlies, Adelina Willett"
 date: "`r Sys.Date()`"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-
 # library ----
-library(flexdashboard)
 library(leaflet)
 library(dplyr)
 library(gsheet)
@@ -46,32 +46,14 @@ Group 4 would consider success among this restoration project if there is an inc
 
 
 # Methods
-###
+
 **Management Actions**
-
-- What was planted or implemented: 1 section of planted short leaf planted in 2020 / wetland area was not cut unlike rest of site since in 2019 it was decided that the area should be treated like a SMZ due to it being a wetland / 
-
-- treatment design: occasional burns starting 2 years after cut with a not complete burn in 2025 but only in the harvested areas add data from web app
-
-- any maintenance or protection measures: Riparian areas were left in order to protect legacy trees, amphibians, birds and small mammals
 
 Building on the goal of monitoring the reproductive success and spatial distribution of Arundinaria appalachiana, management actions on the site were intentionally minimal in certain areas to preserve a useful point of comparison. Because part of the site had previously been designated as a Streamside Management Zone (SMZ), the wetland and adjacent riparian areas were left uncut during the 2020 planting of shortleaf pine (Pinus echinata). This created a semi-controlled environment where natural processes could continue with limited disturbance. While most of the upland areas underwent harvesting and replanting, the SMZ remained largely intact, allowing for observation of Arundinaria performance in a non-thinned setting, particularly in relation to wetland proximity.
 
 Management in the harvested portions of the site included periodic prescribed burning beginning approximately two years after cutting, aimed at promoting native species regeneration and reducing competition. However, the SMZ experienced very limited direct intervention, with only a light and incomplete burn occurring in 2025 that left minimal visible burn impact. Riparian buffers were consistently maintained to protect legacy trees and provide habitat for amphibians, birds, and small mammals. This combination of active management in uplands and passive management in wetland-adjacent areas supports the broader objective of comparing Arundinaria prevalence across different site conditions, while also encouraging the growth and eventual reproductive maturity of shortleaf pine.
 
 **Monitoring and Evaluation Plan**
-
-- What variables will be measured: Arundinaria patch size and short leaf pine growth
-
-- why they matter: Illustrates the success of the site for restoring back to species that were present in the past 
-
-- how data will be collected: Using tape measures, clinometer,  
-
-- sampling approach:  6 1/10th ac plots measured and Arundinaria and short leaf pine in these plots are further measured
-
-- Timing: done over multiple weeks first few weeks measured and divided up area then began measuring plots
-
-- indicators of success or failure: size or Arundinaria patches and success of short leaf pines
 
 Aligned with the goal of evaluating the reproductive success and distribution of Arundinaria appalachiana, the monitoring plan focuses on tracking both cane patch size and the growth of shortleaf pine (Pinus echinata) across the site. These variables were selected because they directly reflect whether the restoration is supporting historically present species under differing management conditions. In particular, measuring Arundinaria abundance in the undisturbed SMZ versus the managed upland areas helps address the central question of whether proximity to wetlands influences its prevalence, while pine growth provides insight into the success of replanting and long-term stand development.
 
