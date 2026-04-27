@@ -82,6 +82,10 @@ trans <-
 stand <- 
   read_sf("/Users/declanoberlies/Downloads/mygeodata (5)")
 
+## shortleaf pine ----
+shortleaf <-
+  read_sf("/Users/declanoberlies/Repos/data_story_5/mygeodata (6)")
+
 # mapping ----
 # run this code to see the map
 leaflet()%>%
@@ -101,15 +105,22 @@ leaflet()%>%
               color = "cyan",
               weight = 2,
               group = "Stand") %>%
+  addPolygons(data = shortleaf,
+              color = "orange",
+              weight = 2,
+              group = "shortleaf pine") %>%
   addMiniMap(width = 100, height = 100,
              zoomLevelOffset = -8,
              zoomLevelFixed = TRUE) %>%
   addLegend(position = "topright",
-            labels = c("Sample Plots", "Transect", "Stand"),
-            colors = c("limegreen", "red", "cyan"),
+            labels = c("Sample Plots", "Transect", "Stand", "shortleaf pine"),
+            colors = c("limegreen", "red", "cyan", "orange"),
             title = "Map Layers") %>%
   addLayersControl(baseGroups = "Base Map", 
-                   overlayGroups = c("Stand","Sample Plots","Transect"), 
+                   overlayGroups = c("Stand",
+                                     "Sample Plots",
+                                     "Transect", 
+                                     "shortleaf pine"), 
                    position = "topright") %>%
   addResetMapButton()
              # centerFixed = TRUE)

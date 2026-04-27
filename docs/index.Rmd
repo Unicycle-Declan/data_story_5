@@ -1,13 +1,15 @@
 ---
-title: "Compartment 60 Arundinaria Wetland Success"
+title: "Arundinaria Wetland Success"
 author: "Oakley Griffin, Declan Oberlies, Adelina Willett"
 date: "`r Sys.Date()`"
 output:
-  html_document: default
+  flexdashboard::flex_dashboard:
+    orientation: columns
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+
 
 # library ----
 library(leaflet)
@@ -19,102 +21,8 @@ library(ggplot2)
 library(leafem)
 library(leaflet.extras)
 library(patchwork)
-```
 
-# Introduction
-
-**Site Background**
-
-Sewanee divides the Domain up into compartments where professors, the Office of Environmental Stewardship and Sustainability (OESS), and students can get hands-on experiences performing and observing experiments for various wildlife and forest management practices. The Forest and Watershed Restoration class is observing previous forest management effects of Pinus echinata (Shortleaf pine) and Arundinaria appalachiana (Arundinaria) within compartment 60, which is located south of the main urban campus, off Jumpoff Road (Highway 156) at the edge of the plateau. This tract was acquired in 1996 by the university after an extensive history of coal strip mining and highgrading of timber which has made it “low in ecological function and economic potential” (165). In the summer of 2019 a patch clearcut operation was performed with the objective of planting and regenerating shortleaf pine. The riparian areas were protected with best management practices (BMPs) including streamside management zones (SMZs) where they left a buffer of forest, legacy trees, and refugia for several species including “amphibians, avian species, [and] small mammals during harvests” (165), as well as for soil stability to keep sediments out of surrounding waterways. In the 2019 management plan, the mention of Arundinaria restoration was absent although further studies of the area have looked into the ecological effects of prescribed fire and reduced basil area on the reproduction of Arundinaria appalachiana.
-
-Within compartment 60, the stand that group 4 chose to look at was one of these SMZ corridors surrounding the main wetland located south-centrally within the site. In the depression leading down to the wetland no cutting was performed for wetland preservation. Wetlands promote different flora and fauna than the adjacent stands but other than that this is a relative control site to study the spread and reproduction of Arundinaria appalachiana as the stand remains a closed canopy forest (aside from the road that goes through it). 
-
-**Restoration Focus**
-
-Arundinaria appalachiana was described as its own species in 2006. Reproduction and preferred habitat of this species is relatively unknown. Compartment 60 is a perfect space with an already present community of Arundinaria making it a good site to see how light variance and implemented fire increases or diminishes its prevalence. 
-
-In the original plan, shortleaf pine planting was implemented across the stand to return the forest to a mixed stand with mixed broadleaf species and intermixed native gymnosperms (shortleaf). Because our stand was not cut, only a small section that intersects with a different stand has been planted with shortleaf pine. Although measured, this is not the main focus of our plot. 
-
-	
-**Restoration Goals and Objectives**
-
-Restoration goals and objectives of our site emphasize monitoring the reproductive success of Arundinaria appalachiana and seeing the success of shortleaf planting from 2019. Our site acted as a SMZ which created almost a control site where management and basil area did not change besides burn implementation. Burn scars are relatively unseen through our site and Arundinaria seems to be prevalent.
-
-We want to see how Arundinaria performs within a closed canopy forest and if adjacency to a wetland increases or decreases its prevalence compared to upland and thinned sites. Our main question is whether or not there is a correlation between wetland and Arundinaria appalachiana as well as if there is a higher prevalence higher or lower on the slope or if Arundinaria can exist within a certified wetland where the water level is often recorded aboveground. For further study doing soil moisture tests and analysis could be an interesting correlation test for this species. 
-
-Group 4 would consider success among this restoration project if there is an increase or continuation of abundance for Arundinaria appalachiana as well as growth and eventual maturation of Pinus echinata. 
-
-
-# Methods
-
-**Management Actions**
-
-Building on the goal of monitoring the reproductive success and spatial distribution of Arundinaria appalachiana, management actions on the site were intentionally minimal in certain areas to preserve a useful point of comparison. Because part of the site had previously been designated as a Streamside Management Zone (SMZ), the wetland and adjacent riparian areas were left uncut during the 2020 planting of shortleaf pine (Pinus echinata). This created a semi-controlled environment where natural processes could continue with limited disturbance. While most of the upland areas underwent harvesting and replanting, the SMZ remained largely intact, allowing for observation of Arundinaria performance in a non-thinned setting, particularly in relation to wetland proximity.
-
-Management in the harvested portions of the site included periodic prescribed burning beginning approximately two years after cutting, aimed at promoting native species regeneration and reducing competition. However, the SMZ experienced very limited direct intervention, with only a light and incomplete burn occurring in 2025 that left minimal visible burn impact. Riparian buffers were consistently maintained to protect legacy trees and provide habitat for amphibians, birds, and small mammals. This combination of active management in uplands and passive management in wetland-adjacent areas supports the broader objective of comparing Arundinaria prevalence across different site conditions, while also encouraging the growth and eventual reproductive maturity of shortleaf pine.
-
-**Monitoring and Evaluation Plan**
-
-Aligned with the goal of evaluating the reproductive success and distribution of Arundinaria appalachiana, the monitoring plan focuses on tracking both cane patch size and the growth of shortleaf pine (Pinus echinata) across the site. These variables were selected because they directly reflect whether the restoration is supporting historically present species under differing management conditions. In particular, measuring Arundinaria abundance in the undisturbed SMZ versus the managed upland areas helps address the central question of whether proximity to wetlands influences its prevalence, while pine growth provides insight into the success of replanting and long-term stand development.
-
-Data collection was carried out using tape measures to assess patch size and plot dimensions, along with a clinometer to estimate tree height and growth. A total of six 0.1-acre plots were established across both upland and wetland-adjacent areas, with more detailed measurements taken for Arundinaria and shortleaf pine within each plot. The sampling process occurred over several weeks, beginning with plot establishment and site division, followed by systematic measurement. Indicators of success include stable or increasing Arundinaria patch size—particularly in relation to wetland adjacency—and consistent growth and maturation of shortleaf pine. Limited cane presence in overly saturated areas and lack of pine development would suggest constraints tied to site conditions or management approach, highlighting areas for further study such as soil moisture analysis.
-
-## Map 
-
-```{r echo=FALSE, message=FALSE}
-## plot locations ----
-plots <- 
-  gsheet2tbl("https://docs.google.com/spreadsheets/d/1W3ZGlZ7DAAIwWVRsqK9zdD7X7f8kbHP_Lzb8_f0RV2I/edit?usp=sharing")
-
-## transect ----
-trans <- 
-  read_sf("/Users/declanoberlies/Downloads/mygeodata (4) 2")
-
-## stand ----
-stand <- 
-  read_sf("/Users/declanoberlies/Downloads/mygeodata (5)")
-
-## domain boundery ----
-domain <-
-  read_sf("/Users/declanoberlies/Repos/data_story_5/UoS_Boundary_201907_8740884543276008122") %>%
-  st_transform(crs = 4326) 
-
-# mapping ----
-# run this code to see the map
-leaflet()%>%
-  addProviderTiles(providers$Esri.WorldImagery, group = "Base Map")%>%
-  # setView()%>%
-  addCircles(data = plots, 
-             radius = 11.35,
-             color = "limegreen",
-             fill = "limegreen",
-             weight = 1,
-             group = "Sample Plots") %>% # radious is in meters
-  addPolylines(data = trans, 
-               color = "red",
-               weight = 3,
-               group = "Transect") %>%
-  addPolygons(data = stand, 
-              color = "cyan",
-              weight = 2,
-              group = "Stand") %>%
-  addMiniMap(width = 100, height = 100,
-             zoomLevelOffset = -8,
-             zoomLevelFixed = TRUE) %>%
-  addLegend(position = "topright",
-            labels = c("Sample Plots", "Transect", "Stand"),
-            colors = c("limegreen", "red", "cyan"),
-            title = "Map Layers") %>%
-  addLayersControl(baseGroups = "Base Map", 
-                   overlayGroups = c("Stand","Sample Plots","Transect"), 
-                   position = "topright") %>%
-  addResetMapButton()
-
-```
-
-# Resaults
-## 2
-```{r echo=FALSE, message=FALSE}
+# load datasets ----
 ## tree data ----
 trees <- 
   read.csv("/Users/declanoberlies/Repos/data_story_5/tree_data.csv", 
@@ -149,8 +57,23 @@ for (i in trees$species_acr){
   }else if(i == "Nyssa sylvatica"){
     trees <- trees %>%
       mutate(species_acr = gsub("Nyssa sylvatica", "NS",trees$species_acr))
+  }else if(i == "Quercus velutina"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Quercus velutina", "QV",trees$species_acr))
+  }else if(i == "Quercus pagoda"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Quercus pagoda", "QP",trees$species_acr))
+  }else if(i == "Quercus montana"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Quercus montana", "QM",trees$species_acr))
+  }else if(i == "Quercus stellata"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Quercus stellata", "QS",trees$species_acr))
   }
-}
+} 
+
+trees$species_acr <- 
+  gsub("LS ","LS", trees$species_acr)
 
 ## Aroundinaria
 Ar_data <- 
@@ -159,6 +82,142 @@ Ar_data <-
          plot = V2,
          area = V3)
 
+
+## plot locations ----
+plots <- 
+  gsheet2tbl("https://docs.google.com/spreadsheets/d/1W3ZGlZ7DAAIwWVRsqK9zdD7X7f8kbHP_Lzb8_f0RV2I/edit?usp=sharing")
+
+## transect ----
+trans <- 
+  read_sf("/Users/declanoberlies/Downloads/mygeodata (4) 2")
+
+## stand ----
+stand <- 
+  read_sf("/Users/declanoberlies/Downloads/mygeodata (5)")
+
+## shortleaf pine ----
+shortleaf <-
+  read_sf("/Users/declanoberlies/Repos/data_story_5/mygeodata (6)")
+
+```
+
+# Introduction
+
+**Site Background**
+
+Sewanee divides the Domain up into compartments where professors, the Office of Environmental Stewardship and Sustainability (OESS), and students can get hands-on experiences performing and observing experiments for various wildlife and forest management practices. The Forest and Watershed Restoration class is observing previous forest management effects of shortleaf pine (Pinus echinata Mill.) and hill cane (Arundinaria appalachiana Triplett, Weakley, & L.G. Clark) within compartment 60, located south of the main urban campus, off Highway 156 at the edge of the Cumberland plateau. This tract was acquired in 1996 by the university after an extensive history of coal strip mining and highgrading of timber which has made it “low in ecological function and economic potential” (Turner et al., 2019). In the summer of 2019 a patch clearcut and shelterwood operation was performed with the objective of planting and regenerating shortleaf pine. The riparian areas were protected with streamside management zones (SMZs) where they left a buffer of forest, legacy trees, and refugia for several species including “amphibians, avian species, [and] small mammals” (Turner et al., 2019), as well as for soil stability to keep sediments out of surrounding waterways. In the 2019 Domain management plan, the mention of hill cane restoration was absent although further studies of the area have looked into the ecological effects of prescribed fire and reduced basil area on the reproduction of Arundinaria appalachiana.
+
+Within compartment 60, the stand that group 4 chose to look at was one of these SMZ corridors surrounding the main wetland located south-centrally within the site. In the depression leading down to the wetland no cutting was performed for wetland preservation. Wetlands promote different flora and fauna than the adjacent stands but other than that this is a relative control site to study the spread and reproduction of Arundinaria appalachiana as the stand remains a closed canopy forest (aside from the road that goes through it). 
+
+**Restoration Focus**
+
+Arundinaria appalachiana was described as its own species in 2006. Reproduction and preferred habitat of this species is relatively unknown. Compartment 60 is a perfect space with an already present community of hill cane making it a good site to see how light variance and implemented fire increases or diminishes its prevalence. 
+
+In the original plan, shortleaf pine planting was implemented across the stand to return the forest to a mixed stand with mixed broadleaf species and intermixed native gymnosperms (shortleaf). Because our stand was not cut, only a small section that intersects with a different stand has been planted with shortleaf pine. Although measured, this is not the main focus of our plot. 
+
+	
+**Restoration Goals and Objectives**
+
+Restoration goals and objectives of our site emphasize monitoring the reproductive success of Arundinaria appalachiana and seeing the success of shortleaf planting from 2019. Our site acted as a SMZ which created almost a control site where management and basil area did not change besides burn implementation. Burn scars are relatively unseen through our site and hill cane seems to be prevalent.
+
+We want to see how hill cane performs within a closed canopy forest and if adjacency to a wetland increases or decreases its prevalence compared to upland and thinned sites. Our main question is whether or not there is a correlation between wetland and Arundinaria appalachiana as well as if there is a higher prevalence higher or lower on the slope or if hill cane can exist within a certified wetland where the water level is often recorded aboveground. For further study doing soil moisture tests and analysis could be an interesting correlation test for this species. 
+
+Group 4 would consider success among this restoration project if there is an increase or continuation of abundance for Arundinaria appalachiana as well as growth and eventual maturation of Pinus echinata. 
+
+# Methods
+##
+###
+
+**Management Actions**
+
+In order to see the reproductive success of the hill cane very few management plans were taken to use as a control, however the lack of a harvest in this group's site acted like a control for the rest of the stand. This control allows for an easy comparison of success of the restoration since it is not harvested unlike the rest of the site. Since a section of the site was named a Streamside Management Zone (SMZ) due to the intermittent water present in the area, the wetland and adjacent riparian areas were not harvested in the 2020 planting of Pinus echinata (shortleaf pine). This SMZ is set to be larger than the minimum outlined by the Forest Stewardship Council and is a 60 meter buffer from the center of the water where no harvest is allowed to take place. A maintenance area is also set with a 164 meter buffer that only allows some thinning and selection that would maintain at least a 50 percent preharvest basal area. This lack of a harvest was in order to protect the water quality and habitats present. Without any harvesting the area was able to grow undisturbed and acted like a control for the upland areas that did go through harvesting and replanting.
+
+In the sections of the site that were harvested however management in the form of prescribed burns took place starting two years after the harvest. These burns were done in order to promote native species regeneration and reduce competition. The latest burn in 2025 was done on a relatively poor weather day and did not achieve full coverage (Van de Ven, 2025). The SMZ was left out of any burns in order to not damage the water shed. Riparian buffers were put in place to protect trees and protect habitats for amphibians, birds, and small mammals. 
+
+**Monitoring and Evaluation Plan**
+
+While working in the site we measured cane patch size and the growth of shortleaf pine (Pinus echinata) in order to determine if the harvest and planting were successful. The hill cane and the pine were measured since they represent the parts of the historic ecosystem we are trying to restore to. The measurements of the hill cane in the SMZ compared to the harvested area will illustrate whether or not the harvest is beneficial to the reproduction of the species. The success of the shortleaf pines will provide insight on whether or not restoring a larger number on the site will be able to happen.
+
+Data data was collected by using tape measures to measure hill cane patch size, along with a clinometer to estimate tree height. A total of six 0.10 acre plots were created across the site both in the wetland area as well as the upland harvested area. Plots were delineated by starting at the northwest corner of the plot and putting a plot center every 100 ft along a transect (Map 1) More detailed measurements were taken for hill cane and shortleaf pine within each plot. Specifically, Arundinaria, which grows in clumps of various sizes (fig.1), was measured in terms of aria that the clump covered. The aria was estimated by measuring the longest and shortest transects of the clump, averaging them, and then using that average as the diameter to find the circular area (equation).
+
+$A = \pi(\frac{long~transect~+~short~transect}{4})^2$
+
+This process took place over several weeks, beginning with plot establishment and site division, followed by plot measurement. Whether or not the hill cane patches were growing as well as how well the shortleaf pine were growing in the harvested areas was an indicator of the success of the harvest.
+
+Data was recorded using a Shiny app (appendix 2). Data was then analyzed for correlation between ft^2/acre of hill cane and mean height, basal area, trees per acre, and tree species present. Lastly, data was analyzed using ggplot2 in R Version 4.5.1 (appendix 1). 
+
+##
+###
+```{r, fig.width=6, fig.height=4, out.width= "100%", out.height= "100%"}
+# mapping ----
+# run this code to see the map
+leaflet()%>%
+  addProviderTiles(providers$Esri.WorldImagery, group = "Base Map")%>%
+  # setView()%>%
+  addCircles(data = plots, 
+             radius = 11.35,
+             color = "limegreen",
+             fill = "limegreen",
+             weight = 1,
+             group = "Sample Plots") %>% # radious is in meters
+  addPolylines(data = trans, 
+               color = "red",
+               weight = 3,
+               group = "Transect") %>%
+  addPolygons(data = stand, 
+              color = "cyan",
+              weight = 2,
+              group = "Stand") %>%
+  addPolygons(data = shortleaf,
+              color = "orange",
+              weight = 2,
+              group = "shortleaf pine") %>%
+  addMiniMap(width = 100, height = 100,
+             zoomLevelOffset = -8,
+             zoomLevelFixed = TRUE) %>%
+  addLegend(position = "topright",
+            labels = c("Sample Plots", "Transect", "Stand", "shortleaf pine"),
+            colors = c("limegreen", "red", "cyan", "orange"),
+            title = "Map Layers") %>%
+  addLayersControl(baseGroups = "Base Map", 
+                   overlayGroups = c("Stand",
+                                     "Sample Plots",
+                                     "Transect", 
+                                     "shortleaf pine"), 
+                   position = "topleft") %>%
+  addResetMapButton()
+```
+
+###
+
+![A](images/IMG_3060.jpeg){width=45%}
+![B](images/IMG_3061.jpeg){width=45%}
+
+*Fig.1 - images from the site showing small (left) and large (right) Arundinaria appalachiana clumps*
+
+
+# Results
+##
+###
+
+**Hill Cane**
+
+When the restoration project was planned, it was predicted that the hill cane were being suppressed by the overstory, and that a decrease in canopy cover would allow the Aroundinaria to expand. If this were true, then a decrease in basal area or trees per acre would correlate with an increase in Aroundinaria coverage or clump size. The results of our evaluation however showed otherwise.
+
+Although both height and basal area had a negative correlation with area occupied by Arondinaria, they only accounted for roughly 6% of the variance of Aroundinaria coverage (fig.2). This is a very weak relationship, so overstory changes such as a shelterwood harvest are unlikely to promote significant changes in Aroundinaria coverage.
+
+Since hill cane grow clonally through clumps it might make sense that even if coverage isn’t strongly affected, clump size might be, however this relationship is just as weak. When mean clump size is considered, height shifts from being negatively correlated to being positively correlated, but at a much weaker degree. This is likely an indication that there is no true correlation, but rather a result of random chance. Basal area was observed to have a stronger negative relationship, but still far from strong enough to be a predictor. Whether or not mean clump size is considered, trees per acre were observed to have no correlation. 
+
+There were no obvious correlations between hill cane coverage and the presence or absence of certain trees (Fig.3). The only tree that could potentially correlate with it is red maple (Acer rubrum) which was present in all of the plots that had lots of hill cane coverage and absent in the plot with the least coverage. Red maple is however one of the most common trees on the plateau, and so this could be a coincidence. 
+
+**Shortleaf Pine**
+
+The shortleaf pine that was planted has responded much more favorably to the shelterwood harvest. There were no conifers in the site prior to the restoration work, and this planted stand is still alive and growing. The shortleaf pine trees have not yet reached reproductive maturity, but when they do, the restoration project can be considered a success.
+
+##
+###
+
+```{r}
 # summary table ----
 plot_sum1 <-
   count(trees %>% group_by(plot)) %>%
@@ -192,58 +251,97 @@ plot_sum <-
   left_join(plot_sum,Ar_sum) %>%
   rename(`Avg. Height` = `mean(height)`)
   
-kable(plot_sum)
-
 ```
 
-
-```{r echo=FALSE, message=FALSE, warning=FALSE}
-# Avg. Height ----
-A <- ggplot(plot_sum,
-       aes(x = `Avg. Height`,
-           y = `Ar ft^2/Acre`))+
+```{r, fig.width=6, fig.height=4, out.width= "100%", out.height= "100%"}
+# graphs ----
+# remove outlyer ----
+plot_sum_filt <- plot_sum %>%
+  filter(plot != 3)
+## with aria ----
+## Avg. Height
+A <- ggplot(plot_sum_filt,
+            aes(x = `Avg. Height`,
+                y = `Ar ft^2/Acre`))+
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(title = "A")
 
-## BA/Acre ----
-B <- ggplot(plot_sum,
-       aes(x = `BA/Acre`,
-           y = `Ar ft^2/Acre`)) +
+## BA/Acre
+B <- ggplot(plot_sum_filt,
+            aes(x = `BA/Acre`,
+                y = `Ar ft^2/Acre`)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(title = "B")
 
-## Trees/Acre ----
-C <- ggplot(plot_sum,
-       aes(x = `Trees/Acre`,
-           y = `Ar ft^2/Acre`)) +
+## Trees/Acre
+C <- ggplot(plot_sum_filt,
+            aes(x = `Trees/Acre`,
+                y = `Ar ft^2/Acre`)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   labs(title = "C")
-  
+
+A + B + C
+```
+*Fig.2 - scatter plot graphs with outliers removed show A) the correlation between average tree height and ft2 occupied by Arundinaria appalachiana clumps with a linear regression line. R2 = 0.06485  B) the correlation between basal areal and ft2 occupied by Arundinaria appalachiana clumps with a linear regression line. R2 = 0.06085 C) the correlation between basal areal and ft2 occupied by Arundinaria appalachiana clumps with a linear regression line. R2 = 0.00009*
+
+
+```{r, fig.width=6, fig.height=4, out.width= "100%", out.height= "100%"}
+## with clump size ----
+## Avg. Height
+A <- ggplot(plot_sum_filt,
+            aes(x = `Avg. Height`,
+                y = `mean clump size`))+
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "A")
+
+## BA/Acre
+B <- ggplot(plot_sum_filt,
+            aes(x = `BA/Acre`,
+                y = `mean clump size`)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "B")
+
+## Trees/Acre
+C <- ggplot(plot_sum_filt,
+            aes(x = `Trees/Acre`,
+                y = `mean clump size`)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "C")
+
 A + B + C
 
+```
+*Fig.3 - scatter plot graphs with outliers removed show A) the correlation between average tree height and average clump size in ft2 with a linear regression line. R2 = 0.01214  B) the correlation between basal areal and average clump size in ft2 with a linear regression line. R2 = 0.07891 C) the correlation between basal areal and average clump size in ft2 with a linear regression line. R2 = 0.0002789*
+
+
+```{r, fig.width=6, fig.height=4, out.width= "100%", out.height= "100%"}
 ## indicator species ----
 
 ggplot(trees %>%
-         left_join(plot_sum %>% select(plot, `Ar ft^2/Acre`), by = "plot") %>%
+         left_join(plot_sum %>% 
+                     select(plot, `Ar ft^2/Acre`), 
+                   by = "plot") %>%
          mutate(plot_label = paste0(plot, ")","           ", `Ar ft^2/Acre`)),
        aes(x = species_acr)) +
   geom_bar() +
   facet_wrap(~plot_label) +
-  labs(x = "",
-       caption = "yes")
-
+  labs(x = "")
 ```
+*Fig.4 - counts of each tree species in each plot, and the corresponding coverage of Arundinaria appalachiana(ft2).*
 
-# Expected Outcomes, Results, and Challenges 
-- Expected outcomes, 
-  - Arundinaria will not spread as far 
-- possible limitations
-- sources of uncertainty
+![](images/IMG_3062.jpeg){width=100%}
+*Fig.5 -  image of shortleaf pine that were planted after the shelterwood harvest in 2020. *
 
-# Conclusion and other theories to research
-- Soil moisture level and arundinaria preferences for growth
+# Discussion 
 
-  
+Our results showed that height, basal area, and trees per acre have no correlation with Arundinaria appalachiana success. So a tree harvest designed to manipulate these variables would be expected to fail at regenerating Arundinaria. There are several reasons why we may have gotten these results. For one thing, only the uncut wetland stand was measured (Map 1). From this stand only canopy and edge effects could be observed. It is possible that having no canopy, or a heavily thinned canopy  as in the case of the shelterwood harvest, could have greater effects of Arundinaria. 
+
+Another possibility is that hill cane is more affected by soil moisture or soil type than canopy structure. Although soil moisture, type, and depth were not measured, it was observed that plots 2, 3, & 4, were situated more in a swampy low spot, and also had higher hill cane coverage. This would also explain why hill cane could be associated with red maple, which is a mesic species. The association with red maple is however only a theory. This could be verified using ANOVA, however our sample size was too small to calculate this statistic accurately. Future studies could measure soil moisture, and presence of other mesic plants like red maple to determine if hill cane is a mesic species. If it was in fact a mesic species, then overstory changes such as the shelterwood harvest that was performed would be obsolete at affecting hill cane growth. 
+
+Since hill cane was growing in the understory of a closed canopy stand, it is clearly a shade tolerant species. Overstory changes like clearcuts or shelterwood harvests can be beneficial to shade tolerant species by letting them grow taller, however hill cane isn’t going to grow taller. It succeeds by producing more clones and expanding its clump wider. Due to this, hill cane will not benefit from overstory openings, and therefore the shelterwood harvest was not successful at promoting hill cane growth. 
