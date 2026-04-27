@@ -4,7 +4,6 @@ author: "Oakley Griffin, Declan Oberlies, Adelina Willett"
 date: "`r Sys.Date()`"
 output:
   html_document: default
-  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -19,6 +18,7 @@ library(knitr)
 library(ggplot2)
 library(leafem)
 library(leaflet.extras)
+library(patchwork)
 ```
 
 # Introduction
@@ -60,7 +60,7 @@ Aligned with the goal of evaluating the reproductive success and distribution of
 Data collection was carried out using tape measures to assess patch size and plot dimensions, along with a clinometer to estimate tree height and growth. A total of six 0.1-acre plots were established across both upland and wetland-adjacent areas, with more detailed measurements taken for Arundinaria and shortleaf pine within each plot. The sampling process occurred over several weeks, beginning with plot establishment and site division, followed by systematic measurement. Indicators of success include stable or increasing Arundinaria patch size—particularly in relation to wetland adjacency—and consistent growth and maturation of shortleaf pine. Limited cane presence in overly saturated areas and lack of pine development would suggest constraints tied to site conditions or management approach, highlighting areas for further study such as soil moisture analysis.
 
 ## Map 
-###
+
 ```{r echo=FALSE, message=FALSE}
 ## plot locations ----
 plots <- 
@@ -189,17 +189,52 @@ Ar_sum <-
   mutate(`mean clump size` = `Ar ft^2/Acre`/`Ar Clumps/Acre`)
 
 plot_sum <-
-  left_join(plot_sum,Ar_sum)
+  left_join(plot_sum,Ar_sum) %>%
+  rename(`Avg. Height` = `mean(height)`)
   
 kable(plot_sum)
 
 ```
-### 3
+
+
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
-ggplot(plot_sum,
+# Avg. Height ----
+A <- ggplot(plot_sum,
+       aes(x = `Avg. Height`,
+           y = `Ar ft^2/Acre`))+
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "A")
+
+## BA/Acre ----
+B <- ggplot(plot_sum,
        aes(x = `BA/Acre`,
            y = `Ar ft^2/Acre`)) +
-  geom_path()
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "B")
+
+## Trees/Acre ----
+C <- ggplot(plot_sum,
+       aes(x = `Trees/Acre`,
+           y = `Ar ft^2/Acre`)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "C")
+  
+A + B + C
+
+## indicator species ----
+
+ggplot(trees %>%
+         left_join(plot_sum %>% select(plot, `Ar ft^2/Acre`), by = "plot") %>%
+         mutate(plot_label = paste0(plot, ")","           ", `Ar ft^2/Acre`)),
+       aes(x = species_acr)) +
+  geom_bar() +
+  facet_wrap(~plot_label) +
+  labs(x = "",
+       caption = "yes")
+
 ```
 
 # Expected Outcomes, Results, and Challenges 

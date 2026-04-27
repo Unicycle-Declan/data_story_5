@@ -149,39 +149,102 @@ plot_sum <-
   
 kable(plot_sum)
 
+## Arundinaria totals ----
+Ar_tol <- 
+  plot_sum %>%
+  summarise(`Ar Clumps/Acre` = mean(`Ar Clumps/Acre`),
+            `Ar ft^2/Acre` = mean(`Ar ft^2/Acre`),
+            `mean clump size` = mean(`mean clump size`)
+                               )
+kable(Ar_tol)
+
 # graphs ----
-## Avg. Height ----
-ggplot(plot_sum,
-       aes(x = `Avg. Height`,
-           y = `Ar ft^2/Acre`))+
+# remove outlyer ----
+plot_sum_filt <- plot_sum %>%
+  filter(plot != 3)
+## with aria ----
+## Avg. Height
+A <- ggplot(plot_sum_filt,
+            aes(x = `Avg. Height`,
+                y = `Ar ft^2/Acre`))+
   geom_point() +
-  geom_smooth(method = lm, se = FALSE)
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "A")
 
-## BA/Acre ----
-ggplot(plot_sum,
-       aes(x = `BA/Acre`,
-           y = `Ar ft^2/Acre`)) +
+## BA/Acre
+B <- ggplot(plot_sum_filt,
+            aes(x = `BA/Acre`,
+                y = `Ar ft^2/Acre`)) +
   geom_point() +
-  geom_smooth(method = lm, se = FALSE)
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "B")
 
-## Trees/Acre ----
-ggplot(plot_sum,
-       aes(x = `Trees/Acre`,
-           y = `Ar ft^2/Acre`)) +
+## Trees/Acre
+C <- ggplot(plot_sum_filt,
+            aes(x = `Trees/Acre`,
+                y = `Ar ft^2/Acre`)) +
   geom_point() +
-  geom_smooth(method = lm, se = FALSE)
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "C")
+
+A + B + C
+
+# A1
+summary(lm(`Ar ft^2/Acre` ~ `Avg. Height`, data = plot_sum_filt))
+# B1
+summary(lm(`Ar ft^2/Acre` ~ `BA/Acre`, data = plot_sum_filt))
+# C1
+summary(lm(`Ar ft^2/Acre` ~ `Trees/Acre`, data = plot_sum_filt))
+
+## with clump size ----
+## Avg. Height
+A <- ggplot(plot_sum_filt,
+            aes(x = `Avg. Height`,
+                y = `mean clump size`))+
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "A")
+
+## BA/Acre
+B <- ggplot(plot_sum_filt,
+            aes(x = `BA/Acre`,
+                y = `mean clump size`)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "B")
+
+## Trees/Acre
+C <- ggplot(plot_sum_filt,
+            aes(x = `Trees/Acre`,
+                y = `mean clump size`)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(title = "C")
+
+A + B + C
+
+# A2
+summary(lm(`mean clump size` ~ `Avg. Height`, data = plot_sum_filt))
+# B2
+summary(lm(`mean clump size` ~ `BA/Acre`, data = plot_sum_filt))
+# C2
+summary(lm(`mean clump size` ~ `Trees/Acre`, data = plot_sum_filt))
+
 
 ## indicator species ----
 
 ggplot(trees %>%
-         left_join(plot_sum %>% select(plot, `Ar ft^2/Acre`), by = "plot") %>%
+         left_join(plot_sum %>% 
+                     select(plot, `Ar ft^2/Acre`), 
+                   by = "plot") %>%
          mutate(plot_label = paste0(plot, ")","           ", `Ar ft^2/Acre`)),
        aes(x = species_acr)) +
   geom_bar() +
   facet_wrap(~plot_label) +
-  labs(x = "",
-       caption = "yes")
+  labs(x = "")
 
 # comparison to original state ----
 
-  
+
+
+
