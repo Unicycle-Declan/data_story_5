@@ -1,0 +1,234 @@
+---
+title: "Arundinaria Wetland Success"
+author: "Oakley Griffin, Declan Oberlies, Adelina Willett"
+date: "`r Sys.Date()`"
+output:
+  flexdashboard::flex_dashboard:
+    orientation: columns
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+
+# library ----
+library(flexdashboard)
+library(leaflet)
+library(dplyr)
+library(gsheet)
+library(sf)
+library(knitr)
+library(ggplot2)
+library(leafem)
+library(leaflet.extras)
+```
+
+# Introduction
+
+**Site Background**
+
+Sewanee divides the Domain up into compartments where professors, the Office of Environmental Stewardship and Sustainability (OESS), and students can get hands-on experiences performing and observing experiments for various wildlife and forest management practices. The Forest and Watershed Restoration class is observing previous forest management effects of Pinus echinata (Shortleaf pine) and Arundinaria appalachiana (Arundinaria) within compartment 60, which is located south of the main urban campus, off Jumpoff Road (Highway 156) at the edge of the plateau. This tract was acquired in 1996 by the university after an extensive history of coal strip mining and highgrading of timber which has made it “low in ecological function and economic potential” (165). In the summer of 2019 a patch clearcut operation was performed with the objective of planting and regenerating shortleaf pine. The riparian areas were protected with best management practices (BMPs) including streamside management zones (SMZs) where they left a buffer of forest, legacy trees, and refugia for several species including “amphibians, avian species, [and] small mammals during harvests” (165), as well as for soil stability to keep sediments out of surrounding waterways. In the 2019 management plan, the mention of Arundinaria restoration was absent although further studies of the area have looked into the ecological effects of prescribed fire and reduced basil area on the reproduction of Arundinaria appalachiana.
+
+Within compartment 60, the stand that group 4 chose to look at was one of these SMZ corridors surrounding the main wetland located south-centrally within the site. In the depression leading down to the wetland no cutting was performed for wetland preservation. Wetlands promote different flora and fauna than the adjacent stands but other than that this is a relative control site to study the spread and reproduction of Arundinaria appalachiana as the stand remains a closed canopy forest (aside from the road that goes through it). 
+
+**Restoration Focus**
+
+Arundinaria appalachiana was described as its own species in 2006. Reproduction and preferred habitat of this species is relatively unknown. Compartment 60 is a perfect space with an already present community of Arundinaria making it a good site to see how light variance and implemented fire increases or diminishes its prevalence. 
+
+In the original plan, shortleaf pine planting was implemented across the stand to return the forest to a mixed stand with mixed broadleaf species and intermixed native gymnosperms (shortleaf). Because our stand was not cut, only a small section that intersects with a different stand has been planted with shortleaf pine. Although measured, this is not the main focus of our plot. 
+
+	
+**Restoration Goals and Objectives**
+
+Restoration goals and objectives of our site emphasize monitoring the reproductive success of Arundinaria appalachiana and seeing the success of shortleaf planting from 2019. Our site acted as a SMZ which created almost a control site where management and basil area did not change besides burn implementation. Burn scars are relatively unseen through our site and Arundinaria seems to be prevalent.
+
+We want to see how Arundinaria performs within a closed canopy forest and if adjacency to a wetland increases or decreases its prevalence compared to upland and thinned sites. Our main question is whether or not there is a correlation between wetland and Arundinaria appalachiana as well as if there is a higher prevalence higher or lower on the slope or if Arundinaria can exist within a certified wetland where the water level is often recorded aboveground. For further study doing soil moisture tests and analysis could be an interesting correlation test for this species. 
+
+Group 4 would consider success among this restoration project if there is an increase or continuation of abundance for Arundinaria appalachiana as well as growth and eventual maturation of Pinus echinata. 
+
+
+# Methods
+###
+**Management Actions**
+
+- What was planted or implemented: 1 section of planted short leaf planted in 2020 / wetland area was not cut unlike rest of site since in 2019 it was decided that the area should be treated like a SMZ due to it being a wetland / 
+
+- treatment design: occasional burns starting 2 years after cut with a not complete burn in 2025 but only in the harvested areas add data from web app
+
+- any maintenance or protection measures: Riparian areas were left in order to protect legacy trees, amphibians, birds and small mammals
+
+Building on the goal of monitoring the reproductive success and spatial distribution of Arundinaria appalachiana, management actions on the site were intentionally minimal in certain areas to preserve a useful point of comparison. Because part of the site had previously been designated as a Streamside Management Zone (SMZ), the wetland and adjacent riparian areas were left uncut during the 2020 planting of shortleaf pine (Pinus echinata). This created a semi-controlled environment where natural processes could continue with limited disturbance. While most of the upland areas underwent harvesting and replanting, the SMZ remained largely intact, allowing for observation of Arundinaria performance in a non-thinned setting, particularly in relation to wetland proximity.
+
+Management in the harvested portions of the site included periodic prescribed burning beginning approximately two years after cutting, aimed at promoting native species regeneration and reducing competition. However, the SMZ experienced very limited direct intervention, with only a light and incomplete burn occurring in 2025 that left minimal visible burn impact. Riparian buffers were consistently maintained to protect legacy trees and provide habitat for amphibians, birds, and small mammals. This combination of active management in uplands and passive management in wetland-adjacent areas supports the broader objective of comparing Arundinaria prevalence across different site conditions, while also encouraging the growth and eventual reproductive maturity of shortleaf pine.
+
+**Monitoring and Evaluation Plan**
+
+- What variables will be measured: Arundinaria patch size and short leaf pine growth
+
+- why they matter: Illustrates the success of the site for restoring back to species that were present in the past 
+
+- how data will be collected: Using tape measures, clinometer,  
+
+- sampling approach:  6 1/10th ac plots measured and Arundinaria and short leaf pine in these plots are further measured
+
+- Timing: done over multiple weeks first few weeks measured and divided up area then began measuring plots
+
+- indicators of success or failure: size or Arundinaria patches and success of short leaf pines
+
+Aligned with the goal of evaluating the reproductive success and distribution of Arundinaria appalachiana, the monitoring plan focuses on tracking both cane patch size and the growth of shortleaf pine (Pinus echinata) across the site. These variables were selected because they directly reflect whether the restoration is supporting historically present species under differing management conditions. In particular, measuring Arundinaria abundance in the undisturbed SMZ versus the managed upland areas helps address the central question of whether proximity to wetlands influences its prevalence, while pine growth provides insight into the success of replanting and long-term stand development.
+
+Data collection was carried out using tape measures to assess patch size and plot dimensions, along with a clinometer to estimate tree height and growth. A total of six 0.1-acre plots were established across both upland and wetland-adjacent areas, with more detailed measurements taken for Arundinaria and shortleaf pine within each plot. The sampling process occurred over several weeks, beginning with plot establishment and site division, followed by systematic measurement. Indicators of success include stable or increasing Arundinaria patch size—particularly in relation to wetland adjacency—and consistent growth and maturation of shortleaf pine. Limited cane presence in overly saturated areas and lack of pine development would suggest constraints tied to site conditions or management approach, highlighting areas for further study such as soil moisture analysis.
+
+## Map 
+###
+```{r echo=FALSE, message=FALSE}
+## plot locations ----
+plots <- 
+  gsheet2tbl("https://docs.google.com/spreadsheets/d/1W3ZGlZ7DAAIwWVRsqK9zdD7X7f8kbHP_Lzb8_f0RV2I/edit?usp=sharing")
+
+## transect ----
+trans <- 
+  read_sf("/Users/declanoberlies/Downloads/mygeodata (4) 2")
+
+## stand ----
+stand <- 
+  read_sf("/Users/declanoberlies/Downloads/mygeodata (5)")
+
+## domain boundery ----
+domain <-
+  read_sf("/Users/declanoberlies/Repos/data_story_5/UoS_Boundary_201907_8740884543276008122") %>%
+  st_transform(crs = 4326) 
+
+# mapping ----
+# run this code to see the map
+leaflet()%>%
+  addProviderTiles(providers$Esri.WorldImagery, group = "Base Map")%>%
+  # setView()%>%
+  addCircles(data = plots, 
+             radius = 11.35,
+             color = "limegreen",
+             fill = "limegreen",
+             weight = 1,
+             group = "Sample Plots") %>% # radious is in meters
+  addPolylines(data = trans, 
+               color = "red",
+               weight = 3,
+               group = "Transect") %>%
+  addPolygons(data = stand, 
+              color = "cyan",
+              weight = 2,
+              group = "Stand") %>%
+  addMiniMap(width = 100, height = 100,
+             zoomLevelOffset = -8,
+             zoomLevelFixed = TRUE) %>%
+  addLegend(position = "topright",
+            labels = c("Sample Plots", "Transect", "Stand"),
+            colors = c("limegreen", "red", "cyan"),
+            title = "Map Layers") %>%
+  addLayersControl(baseGroups = "Base Map", 
+                   overlayGroups = c("Stand","Sample Plots","Transect"), 
+                   position = "topright") %>%
+  addResetMapButton()
+
+```
+
+# Resaults
+## 2
+```{r echo=FALSE, message=FALSE}
+## tree data ----
+trees <- 
+  read.csv("/Users/declanoberlies/Repos/data_story_5/tree_data.csv", 
+           header = FALSE) %>%
+  rename(time = V1,
+         plot = V2,
+         DBH = V3,
+         height = V4,
+         species = V5) %>%
+  mutate(species_acr = species,
+         BA = .005454*(DBH^2))
+
+for (i in trees$species_acr){
+  if(i == "Quercus coccinea"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Quercus coccinea", "QC",trees$species_acr))
+  }else if(i == "Liquidambar styraciflua"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Liquidambar styraciflua", "LS",trees$species_acr))
+  }else if(i == "Oxydendrum arboreum"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Oxydendrum arboreum", "OA",trees$species_acr))
+  }else if(i == "Acer rubrum"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Acer rubrum", "AR",trees$species_acr))
+  }else if(i == "Sassafras albidum"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Sassafras albidum", "SA",trees$species_acr))
+  }else if(i == "Quercus alba"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Quercus alba", "OA",trees$species_acr))
+  }else if(i == "Nyssa sylvatica"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Nyssa sylvatica", "NS",trees$species_acr))
+  }
+}
+
+## Aroundinaria
+Ar_data <- 
+  read.csv("/Users/declanoberlies/Repos/data_story_5/Ar_data.csv", header = FALSE) %>%
+  rename(time = V1,
+         plot = V2,
+         area = V3)
+
+# summary table ----
+plot_sum1 <-
+  count(trees %>% group_by(plot)) %>%
+  mutate(n = n*10) %>%
+  rename(`Trees/Acre` = n)
+  
+plot_sum2 <-
+  trees %>%
+  group_by(plot) %>%
+  summarise(mean(height), 
+            `BA/Acre` = sum(BA)*10
+            )
+plot_sum <- 
+  left_join(plot_sum2, plot_sum1)
+
+Ar_sum1 <-
+  count(Ar_data%>% group_by(plot)) %>%
+  mutate(n = n*10) %>%
+  rename(`Ar Clumps/Acre` = n)
+
+Ar_sum2 <- 
+  Ar_data %>%
+  group_by(plot) %>%
+  summarise(`Ar ft^2/Acre` = sum(area)*10)
+
+Ar_sum <-
+  left_join(Ar_sum1,Ar_sum2) %>%
+  mutate(`mean clump size` = `Ar ft^2/Acre`/`Ar Clumps/Acre`)
+
+plot_sum <-
+  left_join(plot_sum,Ar_sum)
+  
+kable(plot_sum)
+
+```
+### 3
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(plot_sum,
+       aes(x = `BA/Acre`,
+           y = `Ar ft^2/Acre`)) +
+  geom_path()
+```
+
+# Expected Outcomes, Results, and Challenges 
+- Expected outcomes, 
+  - Arundinaria will not spread as far 
+- possible limitations
+- sources of uncertainty
+
+# Conclusion and other theories to research
+- Soil moisture level and arundinaria preferences for growth
+
+  

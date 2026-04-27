@@ -6,7 +6,7 @@ library(DT)
 library(readr)
 
 species <- 
-  c("Quercus coccinea", "Oxydendrum arboreum", "Liquidambar styraciflua", "Acer rubrum", "Sassafras albidum", "Quercus alba", "Nyssa sylvatica")
+  c("Quercus coccinea", "Quercus velutina", "Quercus alba","Quercus pagoda", "Quercus stellata", "Quercus montana","Liquidambar styraciflua", "Acer rubrum", "Sassafras albidum", "Nyssa sylvatica", "Oxydendrum arboreum")
 # Function for saving data to a CSV file ----
 log_line <- function(newdata, filename = 'app_data.csv'){
   (dt <- Sys.time() %>% round %>% as.character)

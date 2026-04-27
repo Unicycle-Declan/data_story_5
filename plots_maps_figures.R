@@ -6,6 +6,8 @@ library(gsheet)
 library(sf)
 library(knitr)
 library(ggplot2)
+library(leafem)
+library(leaflet.extras)
 
 # load datasets ----
 ## tree data ----
@@ -42,8 +44,23 @@ for (i in trees$species_acr){
   }else if(i == "Nyssa sylvatica"){
     trees <- trees %>%
       mutate(species_acr = gsub("Nyssa sylvatica", "NS",trees$species_acr))
+  }else if(i == "Quercus velutina"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Quercus velutina", "QV",trees$species_acr))
+  }else if(i == "Quercus pagoda"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Quercus pagoda", "QP",trees$species_acr))
+  }else if(i == "Quercus montana"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Quercus montana", "QM",trees$species_acr))
+  }else if(i == "Quercus stellata"){
+    trees <- trees %>%
+      mutate(species_acr = gsub("Quercus stellata", "QS",trees$species_acr))
   }
-}
+} 
+
+trees$species_acr <- 
+  gsub("LS ","LS", trees$species_acr)
 
 ## Aroundinaria
 Ar_data <- 
@@ -127,15 +144,43 @@ Ar_sum <-
   mutate(`mean clump size` = `Ar ft^2/Acre`/`Ar Clumps/Acre`)
 
 plot_sum <-
-  left_join(plot_sum,Ar_sum)
+  left_join(plot_sum,Ar_sum) %>%
+  rename(`Avg. Height` = `mean(height)`)
   
 kable(plot_sum)
 
-# BA and A graph ----
+# graphs ----
+## Avg. Height ----
+ggplot(plot_sum,
+       aes(x = `Avg. Height`,
+           y = `Ar ft^2/Acre`))+
+  geom_point() +
+  geom_smooth(method = lm, se = FALSE)
+
+## BA/Acre ----
 ggplot(plot_sum,
        aes(x = `BA/Acre`,
            y = `Ar ft^2/Acre`)) +
-  geom_path()
+  geom_point() +
+  geom_smooth(method = lm, se = FALSE)
+
+## Trees/Acre ----
+ggplot(plot_sum,
+       aes(x = `Trees/Acre`,
+           y = `Ar ft^2/Acre`)) +
+  geom_point() +
+  geom_smooth(method = lm, se = FALSE)
+
+## indicator species ----
+
+ggplot(trees %>%
+         left_join(plot_sum %>% select(plot, `Ar ft^2/Acre`), by = "plot") %>%
+         mutate(plot_label = paste0(plot, ")","           ", `Ar ft^2/Acre`)),
+       aes(x = species_acr)) +
+  geom_bar() +
+  facet_wrap(~plot_label) +
+  labs(x = "",
+       caption = "yes")
 
 # comparison to original state ----
 
