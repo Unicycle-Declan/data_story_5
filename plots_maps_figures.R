@@ -254,7 +254,7 @@ ggplot(trees %>%
   facet_wrap(~plot_label) +
   labs(x = "")
 
-# comparison to original state ----
+# comparison to original state ---- 
 
 
 

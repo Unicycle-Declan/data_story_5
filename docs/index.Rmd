@@ -105,24 +105,24 @@ shortleaf <-
 
 **Site Background**
 
-Sewanee divides the Domain up into compartments where professors, the Office of Environmental Stewardship and Sustainability (OESS), and students can get hands-on experiences performing and observing experiments for various wildlife and forest management practices. The Forest and Watershed Restoration class is observing previous forest management effects of shortleaf pine (Pinus echinata Mill.) and hill cane (Arundinaria appalachiana Triplett, Weakley, & L.G. Clark) within compartment 60, located south of the main urban campus, off Highway 156 at the edge of the Cumberland plateau. This tract was acquired in 1996 by the university after an extensive history of coal strip mining and highgrading of timber which has made it “low in ecological function and economic potential” (Turner et al., 2019). In the summer of 2019 a patch clearcut and shelterwood operation was performed with the objective of planting and regenerating shortleaf pine. The riparian areas were protected with streamside management zones (SMZs) where they left a buffer of forest, legacy trees, and refugia for several species including “amphibians, avian species, [and] small mammals” (Turner et al., 2019), as well as for soil stability to keep sediments out of surrounding waterways. In the 2019 Domain management plan, the mention of hill cane restoration was absent although further studies of the area have looked into the ecological effects of prescribed fire and reduced basil area on the reproduction of Arundinaria appalachiana.
+Sewanee divides the Domain up into compartments where professors, the Office of Environmental Stewardship and Sustainability (OESS), and students can get hands-on experiences performing and observing experiments for various wildlife and forest management practices. The Forest and Watershed Restoration class is observing previous forest management effects of shortleaf pine (*Pinus echinata* Mill.) and hill cane (*Arundinaria appalachiana* Triplett, Weakley, & L.G. Clark) within compartment 60, located south of the main urban campus, off Highway 156 at the edge of the Cumberland plateau. This tract was acquired in 1996 by the university after an extensive history of coal strip mining and highgrading of timber which has made it “low in ecological function and economic potential” (Turner et al., 2019). In the summer of 2019 a patch clearcut and shelterwood operation was performed with the objective of planting and regenerating shortleaf pine. The riparian areas were protected with streamside management zones (SMZs) where they left a buffer of forest, legacy trees, and refugia for several species including “amphibians, avian species, [and] small mammals” (Turner et al., 2019), as well as for soil stability to keep sediments out of surrounding waterways. In the 2019 Domain management plan, the mention of hill cane restoration was absent although further studies of the area have looked into the ecological effects of prescribed fire and reduced basil area on the reproduction of *Arundinaria appalachiana*.
 
-Within compartment 60, the stand that group 4 chose to look at was one of these SMZ corridors surrounding the main wetland located south-centrally within the site. In the depression leading down to the wetland no cutting was performed for wetland preservation. Wetlands promote different flora and fauna than the adjacent stands but other than that this is a relative control site to study the spread and reproduction of Arundinaria appalachiana as the stand remains a closed canopy forest (aside from the road that goes through it). 
+Within compartment 60, the stand that group 4 chose to look at was one of these SMZ corridors surrounding the main wetland located south-centrally within the site. In the depression leading down to the wetland no cutting was performed for wetland preservation. Wetlands promote different flora and fauna than the adjacent stands but other than that this is a relative control site to study the spread and reproduction of *Arundinaria appalachiana* as the stand remains a closed canopy forest (aside from the road that goes through it). 
 
 **Restoration Focus**
 
-Arundinaria appalachiana was described as its own species in 2006. Reproduction and preferred habitat of this species is relatively unknown. Compartment 60 is a perfect space with an already present community of hill cane making it a good site to see how light variance and implemented fire increases or diminishes its prevalence. 
+*Arundinaria appalachiana* was described as its own species in 2006. Reproduction and preferred habitat of this species is relatively unknown. Compartment 60 is a perfect space with an already present community of hill cane making it a good site to see how light variance and implemented fire increases or diminishes its prevalence. 
 
 In the original plan, shortleaf pine planting was implemented across the stand to return the forest to a mixed stand with mixed broadleaf species and intermixed native gymnosperms (shortleaf). Because our stand was not cut, only a small section that intersects with a different stand has been planted with shortleaf pine. Although measured, this is not the main focus of our plot. 
 
 	
 **Restoration Goals and Objectives**
 
-Restoration goals and objectives of our site emphasize monitoring the reproductive success of Arundinaria appalachiana and seeing the success of shortleaf planting from 2019. Our site acted as a SMZ which created almost a control site where management and basil area did not change besides burn implementation. Burn scars are relatively unseen through our site and hill cane seems to be prevalent.
+Restoration goals and objectives of our site emphasize monitoring the reproductive success of *Arundinaria appalachiana* and seeing the success of shortleaf planting from 2019. Our site acted as a SMZ which created almost a control site where management and basil area did not change besides burn implementation. Burn scars are relatively unseen through our site and hill cane seems to be prevalent.
 
-We want to see how hill cane performs within a closed canopy forest and if adjacency to a wetland increases or decreases its prevalence compared to upland and thinned sites. Our main question is whether or not there is a correlation between wetland and Arundinaria appalachiana as well as if there is a higher prevalence higher or lower on the slope or if hill cane can exist within a certified wetland where the water level is often recorded aboveground. For further study doing soil moisture tests and analysis could be an interesting correlation test for this species. 
+We want to see how hill cane performs within a closed canopy forest and if adjacency to a wetland increases or decreases its prevalence compared to upland and thinned sites. Our main question is whether or not there is a correlation between wetland and *Arundinaria appalachiana* as well as if there is a higher prevalence higher or lower on the slope or if hill cane can exist within a certified wetland where the water level is often recorded aboveground. For further study doing soil moisture tests and analysis could be an interesting correlation test for this species. 
 
-Group 4 would consider success among this restoration project if there is an increase or continuation of abundance for Arundinaria appalachiana as well as growth and eventual maturation of Pinus echinata. 
+Group 4 would consider success among this restoration project if there is an increase or continuation of abundance for *Arundinaria appalachiana* as well as growth and eventual maturation of *Pinus echinata*. 
 
 # Methods
 ##
@@ -130,13 +130,13 @@ Group 4 would consider success among this restoration project if there is an inc
 
 **Management Actions**
 
-In order to see the reproductive success of the hill cane very few management plans were taken to use as a control, however the lack of a harvest in this group's site acted like a control for the rest of the stand. This control allows for an easy comparison of success of the restoration since it is not harvested unlike the rest of the site. Since a section of the site was named a Streamside Management Zone (SMZ) due to the intermittent water present in the area, the wetland and adjacent riparian areas were not harvested in the 2020 planting of Pinus echinata (shortleaf pine). This SMZ is set to be larger than the minimum outlined by the Forest Stewardship Council and is a 60 meter buffer from the center of the water where no harvest is allowed to take place. A maintenance area is also set with a 164 meter buffer that only allows some thinning and selection that would maintain at least a 50 percent preharvest basal area. This lack of a harvest was in order to protect the water quality and habitats present. Without any harvesting the area was able to grow undisturbed and acted like a control for the upland areas that did go through harvesting and replanting.
+In order to see the reproductive success of the hill cane very few management plans were taken to use as a control, however the lack of a harvest in this group's site acted like a control for the rest of the stand. This control allows for an easy comparison of success of the restoration since it is not harvested unlike the rest of the site. Since a section of the site was named a Streamside Management Zone (SMZ) due to the intermittent water present in the area, the wetland and adjacent riparian areas were not harvested in the 2020 planting of *Pinus echinata* (shortleaf pine). This SMZ is set to be larger than the minimum outlined by the Forest Stewardship Council and is a 60 meter buffer from the center of the water where no harvest is allowed to take place. A maintenance area is also set with a 164 meter buffer that only allows some thinning and selection that would maintain at least a 50 percent preharvest basal area. This lack of a harvest was in order to protect the water quality and habitats present. Without any harvesting the area was able to grow undisturbed and acted like a control for the upland areas that did go through harvesting and replanting.
 
 In the sections of the site that were harvested however management in the form of prescribed burns took place starting two years after the harvest. These burns were done in order to promote native species regeneration and reduce competition. The latest burn in 2025 was done on a relatively poor weather day and did not achieve full coverage (Van de Ven, 2025). The SMZ was left out of any burns in order to not damage the water shed. Riparian buffers were put in place to protect trees and protect habitats for amphibians, birds, and small mammals. 
 
 **Monitoring and Evaluation Plan**
 
-While working in the site we measured cane patch size and the growth of shortleaf pine (Pinus echinata) in order to determine if the harvest and planting were successful. The hill cane and the pine were measured since they represent the parts of the historic ecosystem we are trying to restore to. The measurements of the hill cane in the SMZ compared to the harvested area will illustrate whether or not the harvest is beneficial to the reproduction of the species. The success of the shortleaf pines will provide insight on whether or not restoring a larger number on the site will be able to happen.
+While working in the site we measured cane patch size and the growth of shortleaf pine (*Pinus echinata*) in order to determine if the harvest and planting were successful. The hill cane and the pine were measured since they represent the parts of the historic ecosystem we are trying to restore to. The measurements of the hill cane in the SMZ compared to the harvested area will illustrate whether or not the harvest is beneficial to the reproduction of the species. The success of the shortleaf pines will provide insight on whether or not restoring a larger number on the site will be able to happen.
 
 Data data was collected by using tape measures to measure hill cane patch size, along with a clinometer to estimate tree height. A total of six 0.10 acre plots were created across the site both in the wetland area as well as the upland harvested area. Plots were delineated by starting at the northwest corner of the plot and putting a plot center every 100 ft along a transect (Map 1) More detailed measurements were taken for hill cane and shortleaf pine within each plot. Specifically, Arundinaria, which grows in clumps of various sizes (fig.1), was measured in terms of aria that the clump covered. The aria was estimated by measuring the longest and shortest transects of the clump, averaging them, and then using that average as the diameter to find the circular area (equation).
 
@@ -340,8 +340,71 @@ ggplot(trees %>%
 
 # Discussion 
 
-Our results showed that height, basal area, and trees per acre have no correlation with Arundinaria appalachiana success. So a tree harvest designed to manipulate these variables would be expected to fail at regenerating Arundinaria. There are several reasons why we may have gotten these results. For one thing, only the uncut wetland stand was measured (Map 1). From this stand only canopy and edge effects could be observed. It is possible that having no canopy, or a heavily thinned canopy  as in the case of the shelterwood harvest, could have greater effects of Arundinaria. 
+Our results showed that height, basal area, and trees per acre have no correlation with *Arundinaria appalachiana* success. So a tree harvest designed to manipulate these variables would be expected to fail at regenerating Arundinaria. There are several reasons why we may have gotten these results. For one thing, only the uncut wetland stand was measured (Map 1). From this stand only canopy and edge effects could be observed. It is possible that having no canopy, or a heavily thinned canopy  as in the case of the shelterwood harvest, could have greater effects of Arundinaria. 
 
 Another possibility is that hill cane is more affected by soil moisture or soil type than canopy structure. Although soil moisture, type, and depth were not measured, it was observed that plots 2, 3, & 4, were situated more in a swampy low spot, and also had higher hill cane coverage. This would also explain why hill cane could be associated with red maple, which is a mesic species. The association with red maple is however only a theory. This could be verified using ANOVA, however our sample size was too small to calculate this statistic accurately. Future studies could measure soil moisture, and presence of other mesic plants like red maple to determine if hill cane is a mesic species. If it was in fact a mesic species, then overstory changes such as the shelterwood harvest that was performed would be obsolete at affecting hill cane growth. 
 
 Since hill cane was growing in the understory of a closed canopy stand, it is clearly a shade tolerant species. Overstory changes like clearcuts or shelterwood harvests can be beneficial to shade tolerant species by letting them grow taller, however hill cane isn’t going to grow taller. It succeeds by producing more clones and expanding its clump wider. Due to this, hill cane will not benefit from overstory openings, and therefore the shelterwood harvest was not successful at promoting hill cane growth. 
+
+# Conclusion
+
+The surrounding stands among compartment 60 had patches of *Arundinaria appalachiana* proliferating among higher light environments where the overstory trees as well as the succession of tulip poplar (*Liriodendron tulipifera*) were not significantly present. The northwestern stand running along a stream with similar BMPs to the wetland depression had no notably present clumps of *Arundinaria appalachiana* which creates a uniqueness to our stand which had significant amounts of *Arundinaria appalachiana* despite its shaded characteristics.
+
+Overall, our findings indicate that *Arundinaria appalachiana*’s persistence in compartment 60 is likely influenced more by soil moisture and conditions rather than by overstory manipulation. While the shelterwood harvest appears effective for establishing *Pinus echinata*, it does not appear to promote hill cane expansion. Future research incorporating soil moisture gradients, hydrology, and larger sample sizes will be essential to better understand the ecological requirements of this species and how to best support its growth and expansion.
+
+# Citations
+
+1. Turner, A., Wilson, N., Smith, K., Sherwood, S., Van de Ven, C., Elkins, M., Godsey, W., & Bradley, A. (2019, December 20). Sewanee Domain management plan 2019 - 2029 . Sewanee.edu. https://new.sewanee.edu/files/resources/2019domain-management-plan-final.pdf 
+
+2. Van de Ven, C. (2025, October 29). Landscape Analysis Lab. The University of the South. https://new.sewanee.edu/offices/university-offices/lal/ 
+
+3. Cheng J, Schloerke B, Karambelkar B, Xie Y, Aden-Buie G (2025).
+  _leaflet: Create Interactive Web Maps with the JavaScript 'Leaflet'
+  Library_. doi:10.32614/CRAN.package.leaflet
+  <https://doi.org/10.32614/CRAN.package.leaflet>, R package version
+2.2.3, <https://CRAN.R-project.org/package=leaflet>.
+
+4. Pebesma, E., & Bivand, R. (2023). Spatial Data Science: With
+  Applications in R. Chapman and Hall/CRC.
+  https://doi.org/10.1201/9780429459016
+
+5. Appelhans T (2025). _leafem: 'leaflet' Extensions for 'mapview'_.
+  doi:10.32614/CRAN.package.leafem
+  <https://doi.org/10.32614/CRAN.package.leafem>, R package version
+  0.2.5, <https://CRAN.R-project.org/package=leafem>.
+
+6. Gatscha S, Karambelkar B, Schloerke B (2026). _leaflet.extras: Extra
+  Functionality for 'leaflet' Package_.
+  doi:10.32614/CRAN.package.leaflet.extras
+  <https://doi.org/10.32614/CRAN.package.leaflet.extras>, R package
+  version 2.0.2, <https://CRAN.R-project.org/package=leaflet.extras>.
+
+7. Conway M (2024). _gsheet: Download Google Sheets Using Just the URL_.
+  doi:10.32614/CRAN.package.gsheet
+  <https://doi.org/10.32614/CRAN.package.gsheet>, R package version
+  0.4.6, <https://CRAN.R-project.org/package=gsheet>.
+
+8. H. Wickham. ggplot2: Elegant Graphics for Data Analysis.
+  Springer-Verlag New York, 2016.
+
+9. Pedersen T (2025). _patchwork: The Composer of Plots_.
+  doi:10.32614/CRAN.package.patchwork
+  <https://doi.org/10.32614/CRAN.package.patchwork>, R package version
+  1.3.2, <https://CRAN.R-project.org/package=patchwork>.
+
+10. Wickham H, François R, Henry L, Müller K, Vaughan D (2023). _dplyr: A
+  Grammar of Data Manipulation_. doi:10.32614/CRAN.package.dplyr
+  <https://doi.org/10.32614/CRAN.package.dplyr>, R package version
+  1.1.4, <https://CRAN.R-project.org/package=dplyr>.
+
+11. Avenza Maps. Version 5.0, Avenza Systems Inc., 2024.
+
+
+
+
+
+
+
+
+
+
