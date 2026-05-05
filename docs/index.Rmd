@@ -190,8 +190,8 @@ leaflet()%>%
 
 ###
 
-![A](images/IMG_3060.jpeg){width=45%}
-![B](images/IMG_3061.jpeg){width=45%}
+![A](/Users/declanoberlies/Repos/data_story_5/images/IMG_3060.jpeg){width=45%}
+![B](/Users/declanoberlies/Repos/data_story_5/images/IMG_3061.jpeg){width=45%}
 
 *Fig.1 - images from the site showing small (left) and large (right) Arundinaria appalachiana clumps*
 
@@ -335,7 +335,7 @@ ggplot(trees %>%
 ```
 *Fig.4 - counts of each tree species in each plot, and the corresponding coverage of Arundinaria appalachiana(ft2).*
 
-![](images/IMG_3062.jpeg){width=100%}
+![](/Users/declanoberlies/Repos/data_story_5/images/IMG_3062.jpeg){width=100%}
 *Fig.5 -  image of shortleaf pine that were planted after the shelterwood harvest in 2020. *
 
 # Discussion 
